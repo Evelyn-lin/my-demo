@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box {
+        margin: 200px auto;
+        width: 400px;
+        padding: 0;
+    }
+    img {
+        width: 13px;
+        margin: 0 4px;
+    }
+    a {
+        font-size: 15px;
+        color: grey;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="password"><img src="images/mess.png" alt=""><a>请输入6~16位密码</a>
+    </div>
+    <script>
+    var input = document.querySelector('input');
+    var a = document.querySelector('a');
+    var img = document.querySelector('img');
+    input.addEventListener('blur',fn);
+    function fn() {
+        if(input.value.length >= 6 && input.value.length <= 16) {
+            a.innerHTML = '您输入的正确';
+            img.src = 'images/right.png';
+            a.style.color = 'green';
+        }else{
+            a.innerHTML = '您输入的位数不对要求6~16位';
+            img.src = 'images/wrong.png';
+            a.style.color = 'red';
+        }
+    }
+    </script>
+</body>
+</html>
