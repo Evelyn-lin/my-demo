@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #header, #footer, #usn,#psw {
+            width: 400px;
+            margin: 10px auto;
+            text-align: center;
+        }
+        #psw {
+            position: relative;
+            left: 8px;
+        }
+        input {
+            border: 1px solid rgb(211, 210, 210);
+            border-color: transparent #999 #999 transparent;
+            outline:none;
+            font-size: 15px;
+        }
+        #mtk {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            border: 1px solid rgb(211, 210, 210);
+            background-color: #fff;
+            
+        }
+        #close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #titler{
+            text-align: center;
+            margin: auto;
+            margin-top: 300px;
+            width: 200px;
+            padding: 0;
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 1px solid rgb(204, 203, 203);
+            background-color: rgb(221, 240, 212);
+            color: #fff;
+            
+        }
+        #header {
+            cursor: move;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="titler"> 点我登录</div>
+    <div id="mtk">
+        <div id="header">会员登录</div><button id="close">关闭</button>
+        <div id="usn">用户名：<input type="text" name="" id="" placeholder="请输入用户名"></div>
+        <div id="psw">密码：<input type="password" name="" id="" placeholder="请输入密码"></div>
+        <div id="footer"><button>登录</button></div>
+    </div>
+
+    <script>
+    var btn = document.querySelector('#titler');
+    var mtk = document.querySelector('#mtk');
+    var body = document.querySelector('body');
+    var header = document.querySelector('#header');
+    var close = document.querySelector('#close');
+    var titler = document.querySelector('#titler');
+    close.addEventListener('click',function(){
+        mtk.style.display = 'none';
+        body.style.backgroundColor = 'white';
+        titler.style.display = 'block';
+    })
+    // btn.onclick = function() {
+    //     mtk.style.display = 'block';
+    //     body.style.backgroundColor = '#999';
+    // }
+    //1.添加点击事件，显示登录框
+    btn.addEventListener('click',function() {
+        mtk.style.display = 'block';
+        body.style.backgroundColor = '#999';
+        titler.style.display = 'none';
+    })
+    //2.按下鼠标，获得鼠标在盒子里的位置
+    header.addEventListener('mousedown',function(e){
+        var x = e.pageX - mtk.offsetLeft;
+        var y = e.pageY - mtk.offsetTop;
+        // console.log(x + 'and'+y);
+        // console.log(e.pageX)
+        // console.log(mtk.offsetLeft)
+        document.addEventListener('mousemove',move);
+        function move(e){
+            mtk.style.left = e.pageX - x + 'px';
+            mtk.style.top = e.pageY - y + 'px';
+        }
+        header.addEventListener('mouseup',function(){
+        document.removeEventListener('mousemove',move)
+    })
+    })
+    
+    </script>
+</body>
+</html>

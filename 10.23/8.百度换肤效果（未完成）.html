@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .fl {
+        list-style-type: none;
+        margin: 20px 30px;
+        display: inline;
+    }
+    ul {
+        padding: 10px;
+        border: 1px solid pink;
+        display: inline-block;
+        /* overflow: hidden; */
+    }
+    /* ul::after{
+        content: "";
+        display: table;
+        clear: both;
+    } */
+    img {
+        width: 300px;
+    }
+   div {
+       display: flex;
+       justify-content: center;
+   }
+   body {
+       background: url(images/1.jpg) no-repeat center top;
+   }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="fl"><img src="images/1.jpg" alt=""></li>
+            <li class="fl"><img src="images/2.jpg" alt=""></li>
+            <li class="fl"><img src="images/3.jpg" alt=""></li>
+            <li class="fl"><img src="images/4.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+    var imgs = document.querySelectorAll('img');
+    var body = document.querySelector('body');
+    for (var i = 0; i < imgs.length; i ++) {
+        imgs[i].addEventListener('click',function() {
+            console.log(this.src);
+            
+            body.style.backgroundImage =  'url(' + this.src + ')';
+        })
+    }
+    </script>
+</body>
+</html>

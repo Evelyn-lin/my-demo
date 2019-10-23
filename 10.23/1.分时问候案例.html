@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        color: brown;
+        font-size: 50px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    //1.获取当前时间的小时数
+    var div = document.querySelector('div');
+    var timer = new Date();
+    var hours = timer.getHours();
+        if(hours < 12) {
+            div.innerHTML = '早上好！'
+        } else if (hours < 18) {
+            div.innerHTML = '下午好！'
+        } else {
+            div.innerHTML = '晚上好！'
+        }
+    </script>
+</body>
+</html>

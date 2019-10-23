@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    input{
+        border: 1px solid #999;
+        border-style: none none solid none;
+        outline: none;
+    }
+    img {
+        height: 20px;
+        vertical-align: bottom;
+    }
+    #demo {
+        padding: 10px;
+        margin: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <input type="password" name="" id="" placeholder="请输入密码">
+        <img src="images/close.png" alt="">
+    </div>
+    <script>
+    var input = document.querySelector('input');
+    var img = document.querySelector('img');
+    img.addEventListener('mousedown',fn1);
+    var flag = 1;//变量记得写在函数外面，否则每次执行函数都会初始化
+    function fn1() {
+        input.type = 'text';
+        img.src = 'images/open.png';
+        img.addEventListener('mouseup',fn2);
+        function fn2() {
+            input.type = 'password';
+            img.src = 'images/close.png';
+        }
+    }
+    </script>
+</body>
+</html>
