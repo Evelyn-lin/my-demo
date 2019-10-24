@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        textarea {
+            height: 100px;
+            font-size: 15px;
+            outline: none;
+            resize: none;
+        }
+        ul {
+            padding: 10px;
+        }
+        li {
+            margin: 10px;
+            width: 300px;
+            background-color: rgb(255, 225, 225);
+        }
+        a {
+            float: right;
+        }
+        a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="top">
+            <textarea name="" id="" cols="30" rows="10" ></textarea>
+            <button>发布</button>
+        </div>
+        <div class="bottom">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var textarea = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function () {
+            var li = document.createElement('li');
+            // ul.appendChild(li);//往后添加
+            ul.insertBefore(li,ul.children[0]);
+            li.innerHTML = textarea.value + '<a href="#">删除<a>';
+            textarea.value = '';
+            var a = document.querySelectorAll('a');
+            for (var i = 0; i < a.length; i++) {
+                a[i].onclick = function() {
+                    ul.removeChild(this.parentNode)
+                }
+                // a[i].addEventListener('click',function(){
+                    
+                //     // this.parentElement.parentElement.removeChild(this.parentElement)
+                //     //移除的是li,父元素是ul
+                //     ul.removeChild(this.parentNode);                   
+                // })
+            }
+        })
+    </script>
+</body>
+</html>
