@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .logo {
+        width: 100px;
+    }
+    
+    .zone {
+        font-family: 黑体;
+        position: relative;
+        top: -30px;
+    }
+    .zone a {
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    .zone_left{
+        font-size: 55px;
+        color: white;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        text-align: center;
+    }
+    .zone_left div{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-image: url(images/1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .zone_left p{
+        font-size: 25px;
+        display: inline;
+        padding: 0 10px;
+        font-family: 黑体;
+        position: relative;
+        top: -30px;
+    }
+    .login{
+        width: 400px;
+        height: 300px;
+        background-color: #fff;
+        position: absolute;
+        top: 30%;
+        left: 60%;
+    }
+    .login input {
+        width: 270px;
+        height: 36px;
+        margin:10px auto;
+        padding: 0px;
+        position: relative;
+        left: 65px;
+        font-size: 18px;
+    }
+    .login_con {
+        width: 300px;
+        text-align: center;
+        margin: 15px auto;
+        font-size: 18px;
+    }
+    .login_head {
+        width: 300px;
+        text-align: center;
+        margin: 10px auto;
+        font-size: 22px;
+    }
+    .login_btn {
+        width: 270px;
+        height: 36px;
+        background-color: rgb(130, 206, 59);
+        margin: 5px auto;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        padding: 10px 0 0;
+        font-family: 微软雅黑;
+
+    }
+    .login ul {
+        float: right;
+        /* margin: 10px 40px; */
+    }
+    .login ul li{
+        list-style: none;
+        display: inline;
+        border: 1px solid #999;
+        border-style: none solid none none;
+        padding: 0 5px 10px 0;
+        width: 80px;
+        font-size: 12px;
+    }
+    .login ul .spe {
+        border-style: none;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="zone_left">
+            <div>
+                    <img src="images/1.png" alt="" class="logo">
+                    <span class="zone"> <a>QQ</a>空间</span>
+            </div>
+            <p>分享生活&nbsp;&nbsp;留住感动</p>
+        </div>
+        <div class="login">
+            <p class="login_head">账号密码登录</p>
+            <p class="login_con">推荐使用<a href="">快速安全登录</a>，防止盗号。</p>
+            <input type="text" name="" id="" placeholder="支持QQ号/邮箱/手机号登录">
+            <input type="password" name="" id="" placeholder="密码">
+            <div class="login_btn">登 录</div>
+            <ul>
+                <li><a href="">忘了密码？</a></li>
+                <li><a href="">注册新账号</a></li>
+                <li class="spe"><a href="">意见反馈</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
