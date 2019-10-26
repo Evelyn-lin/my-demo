@@ -65,12 +65,11 @@
             float: left;
             width: 8px;
             height: 8px;
-            border: 1px solid rgb(255, 255, 255);
             color: snow;
             font-size: 20px;
             border-radius: 50%;
-            margin: 5px;
-            cursor: pointer;
+            border: 1px solid white;
+            margin: 10px;
         }
     </style>
 </head>
@@ -110,99 +109,89 @@
         var left = document.querySelector('.arrow-l');
         var right = document.querySelector('.arrow-r');
         var last = ul.children[0].cloneNode(true);
+        ul.appendChild(last);
         var focuswidth = document.querySelector('.focus-f1').offsetWidth;
         var focus = document.querySelector('.focus-f1');
         var circle = document.querySelector('.circle');
-        //小圆圈
-        for (var i = 0; i < ul.children.length; i++) {
-            var li = document.createElement('li');
-            li.setAttribute('index', i);
-            circle.appendChild(li);
-        }
-        var dot = circle.querySelectorAll('li');
-        dot[0].style.backgroundColor = 'snow';
-        //鼠标放上去，显示按钮，离开时隐藏
-        focus.addEventListener('mouseenter',function(){
+        
+        //鼠标放上去，出现按钮，离开时隐藏
+        focus.onmouseenter = function () {
             left.style.display = 'block';
             right.style.display = 'block';
-        })
-        focus.addEventListener('mouseleave',function(){
+        }
+        focus.onmouseleave = function () {
             left.style.display = 'none';
             right.style.display = 'none';
+        }
+        //小圈圈
+        for (var i = 0; i < ul.children.length-1; i++) {
+            var li = document.createElement('li');//创建li标签
+            li.setAttribute('index', i); //添加自定义属性
+            circle.appendChild(li); //放到列表中
+        }
+        var circles = circle.children;
+        var index = 0;
+        function change(num) {
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].style.backgroundColor = '';
+            }
+            circles[num].style.backgroundColor = 'white';
+        }
+        change(index);//先让第一个圆圈变化
+        var flag = true;//创建一个节流阀
+        //点击左侧按钮,图片滑动
+        left.addEventListener('click',function () {
+            if (flag) {
+                flag = false;
+                index++;        
+                change(index%4);
+                animate(ul, -index*focuswidth,function(){
+                    flag = true; 
+                    if (index == 4) {
+                    ul.style.left = 0;
+                    index = 0;
+                } 
+                });
+            }
         })
-        ul.appendChild(last);
-        var num = 0;
-        var flag = true;//节流阀
-        var index1 = 0;
         //右侧按钮
         right.addEventListener('click',function () {
             if (flag) {
                 flag = false;
-                num++;
-                index1++;
-                console.log(index1);
-                
-                dotChange(index1%4);
-                animate(ul, -focuswidth*num, function(){
-                    flag = true;
-                if (num == ul.children.length-1) {
-                        ul.style.left = 0;
-                        num = 0;
-                }
+                if (index == 0) {
+                    index = 4;
+                    ul.style.left = -4*focuswidth + 'px';                    
+                } 
+                index--;        
+                change(Math.abs(index)%4);
+                animate(ul, -index*focuswidth,function(){
+                    flag = true; 
                 });
-                
             }
-        });
-        //左侧按钮
-        left.addEventListener('click',function () {
-            if (flag) {
-                flag = false;
-                if (num == 0) {
-                        num = ul.children.length-1;
-                        ul.style.left = -focuswidth*num + 'px';
-                        
-                    }
-                    num--;
-                    index1--;
-                    dotChange(Math.abs(index1)%4);
-                animate(ul, -focuswidth*num, function(){
-                    flag = true;
-                })
+        })
+        //点击小圆点事件
+        for (var i = 0; i < circles.length; i++) {
+            circles[i].onclick = function () {
+                index = this.getAttribute('index');
+                change(index);
+                animate(ul, -index*focuswidth);
+
             }
-        });
-        function dotChange (num) {
-            for (var i = 0; i < dot.length; i++) {
-                dot[i].style.backgroundColor = '';
-            }
-            dot[num].style.backgroundColor = 'snow';
-        }
-      //点击小圆圈改变ul位置
-        for (var i = 0; i < dot.length; i++) {
-            dot[i].addEventListener('click',function(){
-                index1 = this.getAttribute('index');
-                console.log(index1);
-                
-                dotChange(index1);
-                animate(ul,-focuswidth*index1);
-            })
-            
         }
         setInterval(function () {
             if (flag) {
                 flag = false;
-                if (num == 0) {
-                        num = ul.children.length-1;
-                        ul.style.left = -focuswidth*num + 'px';
-                        
-                    }
-                    num--;
-                    index1--;
-                    dotChange(Math.abs(index1)%4);
-                animate(ul, -focuswidth*num, function(){
-                    flag = true;
-                })
+                if (index == 0) {
+                    index = 4;
+                    ul.style.left = -4*focuswidth + 'px';                    
+                } 
+                index--;        
+                change(Math.abs(index)%4);
+                animate(ul, -index*focuswidth,function(){
+                    flag = true; 
+                });
             }
-        },2000)
+        },2000);
     </script>
 </body>
 </html>
