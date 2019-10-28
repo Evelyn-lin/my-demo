@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //1.fadeIn() 淡入   注意fade后面的单词都是大写
+        //2.fadeOut() 淡出
+        //3.fadeTo() 淡出或淡入到某个程度 $(selector).fadeTo(speed,opacity,callback); opacity 是透明度
+        //4.fadeToggle() 淡入淡出切换
+        // 语法格式   $(selector).fadeIn(speed,callback); 
+        //(1)speed参数规定效果的时长，可以是slow fast 或者 毫秒
+        //(2)callback参数是fading完成后所执行的函数名称
+       $(document).ready(function () {
+            $('.fadetoggle').click(function () {
+                $('p').fadeToggle();
+            })
+            $('.fadeto').click(function () {
+                $('b').fadeTo('fast',0.5) 
+            })
+       })
+    </script>
+    <style>
+        p,b {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 4, 4);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button class="fadetoggle">fadeToggle</button>
+    <button class="fadeto">fadeTo</button>
+    <p></p>
+    <b></b>
+</body>
+</html>

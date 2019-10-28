@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px solid pink;
+            margin: 40px;
+            padding: 20px;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //width(),height() 只包括内容的高度与宽度
+        //
+        $(document).ready(function () {
+            $('.btn1').click(function () {
+                $('div').html(
+                    'width:' + $('div').width() + '</br>' +
+                    'innerWidth:' + $('div').innerWidth() + '</br>' +
+                    'outerWidth:' + $('div').outerWidth() + '</br>'+
+                    'outerWidth(true):'+$('div').outerWidth(true)
+                )
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+    </div>
+    <button class="btn1">显示div的尺寸</button>
+
+</body>
+
+</html>

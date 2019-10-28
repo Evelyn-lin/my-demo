@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.right').click(function () {
+                $('p').animate({ left: '1000px' }, 5000)
+            });
+            $('.stop').click(function () {
+                $('p').stop();
+            })
+        })
+    </script>
+    <style>
+        p,
+        b {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 4, 4);
+            display: block;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="right">向右滑</button>
+    <button class="stop">停止</button>
+    <p></p>
+    <b></b>
+</body>
+
+</html>

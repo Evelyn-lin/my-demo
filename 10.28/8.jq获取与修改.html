@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //获取文本的方式有三种
+        //1.text() 设置或返回所选元素的文本内容；不包含标签
+        //2.html() 设置或返回所选元素的内容(包含标签哦))
+        //3.val() 设置或返回表单字段的值
+        $(document).ready(function(){
+            $('.btn1').click(function(){
+                alert($('p').text());
+            });
+            $('.btn2').click(function(){
+                alert($('p').html());
+            })
+            $('.btn3').click(function() {
+                $('p').html('已经修改啦');
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <p>这是段落中的<b>粗体</b>文本</p>
+    <button class="btn1">显示文本</button>
+    <button class="btn2">HTML</button>
+    <button class="btn3">修改内容</button>
+</body>
+
+</html>

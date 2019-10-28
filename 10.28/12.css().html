@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            color: blue;
+        }
+
+        .ye {
+            color: yellow;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //
+        $(document).ready(function () {
+            $('.btn1').click(function () {
+                alert($('p').css('color'));
+            });
+            $('.btn2').click(function () {
+                $('p').css('backgroundColor','red'); //修改css属性；注意 backgroundColor也可以写为 background-color
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="demo">这是第一个p</p>
+        <p class="ye">这是第二个p</p>
+        <p>这是第三个p</p>
+
+    </div>
+    <button class="btn1">返回p元素的背景色</button>
+    <button class="btn2">更改p元素的背景色</button>
+
+</body>
+
+</html>

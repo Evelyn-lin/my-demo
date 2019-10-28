@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,li {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        button{
+            color: black;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //三个最基本的过滤方法是：first(),last(),eq()
+        //其他过滤方法 filter()和not()
+        $(document).ready(function(){
+            $('.btn1').click(function(){
+                $('div h2').first().css('color','red') //first() 选择第一个元素
+            });
+            $('.btn2').click(function(){
+                $('div h2').last().css('color','red') // last() 选择最后一个元素
+            });
+            $('.btn3').click(function(){
+                $('div h2').eq('3').css('color','red') // eq('索引号') 选择对应索引号的元素
+            });
+            $('.btn4').click(function(){
+                $('div h2').filter('.h2').css('color','red') // filter() 创建一个规则，选择满足括号中条件的元素
+            });
+            $('.btn5').click(function(){
+                $('div h2').not('.h2').css('color','red') // not() 与filter相反，选择除了满足括号中条件的元素
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <body class="ancestors"> 
+        <div style="width:500px;">
+        <h2>h1</h2>
+        <h2 class="h2">h2</h2>
+        <h2>h3</h2>
+        <h2>h4</h2>
+        <h2>h5</h2>
+        <h2 class="h6">h6</h2>
+        <h2>h7</h2>
+        </div>
+        <h2>h8</h2>
+        <button class="btn1">first()</button>
+        <button class="btn2">last()</button>
+        <button class="btn3">eq('3')</button>
+        <button class="btn4">filter('.h2')</button>
+        <button class="btn5">not('.h2')</button>
+    </body>
+</body>
+
+</html>

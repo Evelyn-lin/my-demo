@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgba(218, 243, 108, 0.801);
+            height: 100px;
+            width: 200px;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+       //remove() 删除呗选中的元素（及其子元素）
+       //empty() 从被选中元素中删除子元素
+       $(document).ready(function() {
+           $('.btn1').click(function() {
+               $('div').remove();
+           });
+           $('.btn2').click(function() {
+               $('div').empty();
+           });
+           $('.btn3').click(function() {
+               $('p').remove('.demo');  //过滤被删除的元素
+           });
+       })
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="demo">这是第一个p</p>
+        <p>这是第二个p</p>
+        <p>这是第三个p</p>
+        
+    </div>
+    <button class="btn1">删除div</button>
+    <button class="btn2">清空div</button>
+    <button class="btn3">清空div里面的demo</button>
+</body>
+
+</html>
