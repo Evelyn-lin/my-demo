@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js">
+    </script>
+    <script>
+        //(1)$(':first-child') 在匹配的集合中选择是家中排行老大的那些
+        //(2)$(':last-child') 在匹配的集合中选择是家中排行老幺的那些
+        //(3)$(':only-child') 如果某个元素是其父元素的唯一子元素，那么它就会被选中，在集合中筛选没有兄弟姐妹的哪些
+        //(4)$(':nth-child(index)') 在集合中选择排行老几的多个元素
+        //(5)$(':nth-last-child') 选择所有他们父元素的第n个子元素。计数从最后一个元素到第一个
+    </script>
+    <style>
+        h1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1</h1>
+    <h1></h1>
+    <h1></h1>
+    <h2>22</h2>
+    <h3>33</h3>
+    <div>
+        <h1>33</h1>
+        <h1>33</h1>
+        <h1>33</h1>
+        <h1>33</h1>
+        <h1>33</h1>
+    </div>
+    <div>
+        <h1>12</h1>
+    </div>
+    <!-- <h4 id="we">444
+        <h5>33</h5>
+    </h4>
+    <h4>34444</h4> -->
+    <a href="">2eqweqw</a>
+    <script>
+        $('h1:nth-last-child(2)').css('border','1px solid pink');
+    </script>
+</body>
+
+</html>

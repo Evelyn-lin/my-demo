@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script>
+        //(1) $(':first') 匹配第一个元素
+        //(2) $(':last') 匹配最后一个元素
+        //(3) $(':not(selector)') 选择所有元素，去掉括号中的元素 ,注意括号中的selector可以不需要引号哦
+        //(4) $(':eq(index)') 在匹配的集合中选择索引号为index的元素
+        //(5) $(':gt(index)') 在匹配的集合中选择索引号大于index的元素
+        //(6) $(':lt(index)') 在匹配的集合中选择索引号小于index的元素
+        //(7) $(':even') 选择索引号为偶数的元素
+        //(8) $(':odd') 选择索引号为奇数的元素
+        //(9) $(':header') 选择所有标题元素，像h1，h2，h3等等
+        //(10) $(':lang(language)') 选择指定语言的元素
+        //(11) $(':root') 选择该文档的根元素
+        //(12) $(':animated') 选择所有正在执行动画效果的元素
+        </script>
+</head>
+
+<body>
+    <h1>1</h1>
+    <h2>22</h2>
+    <h3>33</h3>
+    <h4>哈哈哈</h4>
+    <h4 id="we">444
+        <h5>33</h5>
+    </h4>
+    <h4>34444</h4>
+    <a href="">2eqweqw</a>
+    <script>
+    console.log($(':root'));
+    
+    </script>
+</body>
+
+</html>
