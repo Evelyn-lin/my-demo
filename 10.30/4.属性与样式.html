@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        /* 
+        1.attr()与removeAtrr() 前者是获得和设置属性值，后者是移除属性值
+             attr('value', function (i, val) {
+                return '新的属性' + val
+             })
+             val 就是value属性的值
+
+        2.html()和text()
+             html() 处理的是元素内容
+             text() 处理的是文本内容
+        
+        3.val() 获得表单的值 包括input，textarea, select
+        特殊情况 如果是select 元素  
+            (1) 单选  即无multiple属性  返回第一个选项的值
+            (2) 多选  返回selected = 'selected'的元素的值，如果都没有，则会返回null
+        
+        4.addClass() 与 removeClass() 增加/移除 样式类名，不会替换样式类名 removeClass 大写
+            (1) .addClass(className) 多个样式名用逗号隔开
+                .addClass(function(index, currentClass)) index表示当前元素在匹配元素中的索引号，从0开始
+            (2) .removeClass('className')  
+                .removeClass(function(index,class){
+                })  一个函数返回一个或者多个将要被移除的样式名
+        4. toggleClass(className) 在匹配的元素集合中的每个元素上用来切换的一个或者多个（用空格隔开）的样式类名
+                .toggleClass( className )：在匹配的元素集合中的每个元素上用来切换的一个或多个（用空格隔开）样式类名
+                .toggleClass( className, switch )：一个布尔值，用于判断样式是否应该被添加或移除
+                .toggleClass( [switch ] )：一个用来判断样式类添加还是移除的 布尔值
+                .toggleClass( function(index, class, switch) [, switch ] )：用来返回在匹配的元素集合中的每个元素上用来切换的样式类名的一个函数。接收元素的索引位置和元素旧的样式类作为参数
+
+        5.css() 获取元素样式属性的计算值或者设置元素的css属性
+                1）获取
+                1.css(propertyName)
+                2.css([propertyName,propertyName]) 传递一组数组，返回一个对象结果，对象会有propertyName属性
+                2）设置
+                1. .css(propertyName, value )：设置CSS
+                2. .css( propertyName, function )：可以传入一个回调函数，返回取到对应的值进行处理
+                3. .css( properties )：可以传一个对象，同时设置多个样式
+        
+        6.jQuery提供的存储接口
+                1.jQuery.data( element, key, value )   //静态接口,存数据
+                2.jQuery.data( element, key )  //静态接口,取数据
+                3..data( key, value ) //实例接口,存数据
+                4..data( key ) //实例接口,取数据
+
+        */
+    </script>
+    <style>
+        .left,
+        .right {
+            width: 300px;
+            height: 120px;
+        }
+        
+        .left div,
+        .right div {
+            width: 100px;
+            height: 90px;
+            padding: 5px;
+            margin: 5px;
+            float: left;
+            border: 1px solid #ccc;
+        }
+            
+        .newClass{
+            background: #bbffaa;
+        }
+    
+        .imoocClass{
+            background: red;
+        }
+    
+        </style>
+</head>
+</head>
+
+<body>
+
+    <h2>.addClss()方法</h2>
+    <div class="left">
+        <div class="aaron">
+            <p>newClass</p>
+        </div>
+        <div class="aaron">
+            <p>newClass</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="aa bb imooc">
+            <article>
+                <p>imoocClass</p>
+            </article>
+        </div>
+        <div class="bb cc imooc ">
+            <article>
+                <p>imoocClass</p>
+            </article>
+        </div>
+       <h1></h1>
+    </div>
+
+    <script type="text/javascript"> 
+        //class=left下div元素增加一个新的样式，增加背景颜色
+        $('.left div').addClass('newClass')
+    </script>
+
+    <script type="text/javascript"> 
+    
+        //通过className(fucntion)方法
+        //这个函数返回一个或更多用空格隔开的要增加的样式名。
+        //接收index 参数表示元素在匹配集合中的索引位置和html 参数表示元素上原来的 HTML 内容
+
+        //找到所有的div，然后通过addClass设置颜色，根据返回的className的判断，
+        $("div").addClass(function(index,className) {
+
+            //找到类名中包含了imooc的元素
+            if(-1 !== className.indexOf('imooc' ) && index == 5){
+                //this指向匹配元素集合中的当前元素
+                $(this).addClass('imoocClass');
+                console.log(index);
+                
+            }
+        });
+    </script>
+</body>
+
+</html>
