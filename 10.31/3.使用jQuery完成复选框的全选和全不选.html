@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        table {
+            border: 1px solid #333;
+            border-collapse: collapse;
+            width: 600px;
+            margin: 50px auto;
+        }
+
+        td,
+        tr,
+        th {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <th><input class="select_all" type="checkbox"></th>
+                <th>分类ID</th>
+                <th>分类名称</th>
+                <th>分类描述</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <th><input class="select" type="checkbox"></th>
+                <td>1</td>
+                <td>手机数码</td>
+                <td>手机数码类商品</td>
+                <td><a href="javascript:;">修改</a>
+                    <a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <th><input class="select" type="checkbox"></th>
+                <td>2</td>
+                <td>手机数码</td>
+                <td>手机数码类商品</td>
+                <td><a href="javascript:;">修改</a>
+                    <a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <th><input class="select" type="checkbox"></th>
+                <td>3</td>
+                <td>手机数码</td>
+                <td>手机数码类商品</td>
+                <td><a href="javascript:;">修改</a>
+                    <a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <th><input class="select" type="checkbox"></th>
+                <td>4</td>
+                <td>手机数码</td>
+                <td>手机数码类商品</td>
+                <td><a href="javascript:;">修改</a>
+                    <a href="javascript:;">删除</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    $('.select_all').click(function(){
+        $('.select').prop('checked',this.checked)
+    })
+</script>
+
+</html>
