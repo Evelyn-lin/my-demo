@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //JSONJavaScript object notation的缩写，它是一种数据交换格式。
+        //序列化
+        var xiaoming = {
+            name: '小明',
+            age: 14,
+            gender: true,
+            height: 1.65,
+            grade: null,
+            'middle-school': '\"W3C\" Middle School',
+            skills: ['JavaScript', 'Java', 'Python', 'Lisp']
+        };
+        var s = JSON.stringify(xiaoming);
+        console.log(s);
+        //加入参数,第二个参数用于控制如何筛选对象的键值，null就是不筛选。还可以传入函数，每个键值都会被函数处理
+        var a = JSON.stringify(xiaoming,null,' ');
+        console.log(a);
+        var b = JSON.stringify(xiaoming,['name'],' ');
+        console.log(b);
+        function convert(key,value){
+            if (typeof value === 'string'){
+                return value.toUpperCase();
+            }
+            return value;
+        }
+        var c = JSON.stringify(xiaoming,convert,' ');
+        console.log(c);
+        
+    </script>
+</body>
+
+</html>
