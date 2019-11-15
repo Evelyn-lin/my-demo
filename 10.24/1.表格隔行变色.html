@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    th {
+        background-color: rgb(176, 202, 240);
+        padding: 5px;
+    }
+    tbody td{
+        border: 1px solid rgb(104, 137, 179);
+        border-style: none none solid none;
+        font-size: 13px;
+        color: blue;
+        padding:5px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 700px;
+        margin: auto;
+        text-align: center;
+        margin-top: 300px;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净值增长率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.706</td>
+                <td>1.702</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+    var trs = document.querySelector('tbody').querySelectorAll('tr');
+    //1.自己做的太复杂啦
+    // for (var i = 0; i < trs.length; i++) {
+    //     trs[i].addEventListener('mouseover',function() {
+    //         for (var i = 0; i < trs.length; i++) {
+    //             trs[i].style.backgroundColor = '';
+    //         }
+    //         this.style.backgroundColor = 'pink';
+    //     })
+    //     trs[i].addEventListener('mouseout',function(){
+    //         this.style.backgroundColor = '';
+    //     })
+    // }
+
+    //2.其实不需要排他思想
+    for (var i = 0; i < trs.length; i++) {
+        trs[i].addEventListener('mouseover',function() {
+            this.style.backgroundColor = 'pink';
+        })
+        trs[i].addEventListener('mouseout',function(){
+            this.style.backgroundColor = '';
+        })
+    }
+    </script>
+</body>
+</html>

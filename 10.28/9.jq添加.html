@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //创建新元素的三种方法
+        function appendtxt() {
+                var txt1 = "<p>1</p>";//1.以HTML创建新元素
+                var txt2 = $('<p></p>').text('2')//2.以jq创建新元素
+                var txt3 = document.createElement('p');//3.用js创建元素
+                txt3.innerHTML = '3';
+                $('body').append(txt1, txt2, txt3);//追加新元素 
+            }
+        //append() 和prepend() 是在元素内部的结尾或开头添加元素，类似appendchild添加的是子节点
+        //after() 和before() 是在元素标签外部的前后添加元素，类似添加的兄弟节点
+    </script>
+</head>
+
+<body>
+    <p>这是段落中的<b>粗体</b>文本</p>
+    <button class="btn1" onclick="appendtxt()">添加内容</button>
+</body>
+
+</html>

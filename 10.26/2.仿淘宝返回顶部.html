@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .head {
+            height: 200px;
+            background-color: purple;
+        }
+        .banner {
+            height: 300px;
+            background-color: rgb(64, 242, 248);
+        }
+        .con {
+            height: 1000px;
+            background-color: rgb(224, 149, 149);
+        }
+        .head, .banner, .con {
+            margin: 10px 200px;
+        }
+        .box {
+            width: 50px;
+            height: 100px;
+            background-color: rgb(227, 248, 41);
+            position: absolute;
+            top: 70%;
+            left: 87%;
+            font-size: 20px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="head">头部</div>
+    <div class="banner">banner</div>
+    <div class="con">内容</div>
+    <script>
+        var banner = document.querySelector('.banner');
+        var head = document.querySelector('.head');
+        var box = document.querySelector('.box');
+        var con = document.querySelector('.con');
+        var boxtop = box.offsetTop;
+        var bannertop = banner.offsetTop;
+        var body = document.querySelector('body');
+        document.addEventListener('scroll',function(){
+            if (window.pageYOffset >= banner.offsetTop) {
+               box.style.position = 'fixed';
+               box.style.top = boxtop - bannertop + 'px'; //总是忘记加px啦啦啦啦   还有top前面要记得还有一个style呢
+            } else {
+                box.style.position = 'abosolute';
+                box.style.top = boxtop - window.pageYOffset + 'px';
+            }
+            if (window.pageYOffset >= con.offsetTop) {
+                box.innerHTML = '返回顶部';
+            } else {
+                box.innerHTML = '';
+            }
+        })
+    </script>
+</body>
+</html>

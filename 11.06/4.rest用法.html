@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(a, b) {
+            console.log(a + b);
+        }
+        fn(1, 2); //3
+        fn(1, 2, 3, 4);//3
+
+        //不确定传入的参数个数怎么办呢  函数内置arguments
+        function fn2() {
+            var sum = 0;
+            /* for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            } 传统遍历方式*/
+            for(var x of arguments){
+                sum += x; //今天新学到的遍历方式，array属于iterable数据结构，采用for of方式或者arr.forEach(function(element,index,arr)){})
+            }
+            console.log(sum);
+        }
+        fn2(1, 2, 3, 4, 5);
+
+        //如何获取多余的参数呢  rest参数前用...标识，rest 会返回一个数组，如果没有值，则是[]
+        function fn3(a,b,...rest){
+            console.log(a+b);
+            console.log(rest); 
+            
+        }
+        fn3(1,2); //3   []
+        fn3(1,2,3); //3  [3]
+        fn3(1); //NAN []
+    </script>
+</body>
+
+</html>

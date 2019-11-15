@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+            float: left;
+            padding-right: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color: rgb(5, 255, 59);
+        }
+        ul {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+        }
+        .rss {
+            float: right;
+            margin-top: 10px;
+        }
+        .demo {
+            width: 1000px;
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            height: 35px;
+            margin: auto;
+            padding: 0 10px;
+        }
+        .cloud{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: -10px 0;
+            background-image: url(images/cloud.gif);
+            background-repeat: no-repeat;
+            width: 83px;
+            height: 42px;
+        }
+        body {
+            background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="animate.js"></script>
+    
+</head>
+<body>
+    <div class="demo">
+            <div class="cloud"></div>
+        <ul>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动策划</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">上海校区</a></li>
+            <li><a href="#">广州校区</a></li>
+        </ul>
+        
+        <div class="rss"><img src="images/rss.png" alt=""></div>
+    </div>
+    <script>
+                var ul = document.querySelector('ul');
+                var lis = ul.children;
+                var cloud = document.querySelector('.cloud');
+                var current = 0;
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].addEventListener('mouseenter',function () {
+                        animate(cloud,this.offsetLeft);                   
+                    });
+                    lis[i].addEventListener('mouseleave',function () {
+                        animate(cloud,current);
+                    })
+                    lis[i].addEventListener('click',function () {
+                        current = this.offsetLeft;
+                    })
+                }
+
+        </script>
+</body>
+</html>

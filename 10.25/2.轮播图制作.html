@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="animate.js"></script>
+    <style>
+        body,
+        div,
+        ul,
+        li,
+        img {
+            padding: 0;
+            margin: 0;
+        }
+        .arrow-l,
+        .arrow-r {
+            display: none;
+            position: absolute; 
+            top: 50%;
+            width: 24px;
+            height: 40px;
+            background-color: rgba(14, 13, 13, 0.3);
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 18px;
+            z-index: 999;             
+        }
+        .arrow-l:hover,
+        .arrow-r:hover {
+            background-color: rgba(238, 236, 236, 0.3);
+            color: rgb(255, 252, 75);
+        }
+        a {
+            text-decoration: none;
+        }
+        .arrow-r {
+            right: 0;
+        }
+        ul {
+            width: 600%;
+            position: relative;
+        }
+        ul li {
+            float: left;
+            list-style: none;
+        }
+        .focus-f1 {
+            position: absolute;
+            width: 721px;
+            overflow: hidden;
+        }
+        .circle {
+         
+            z-index: 99;
+            width: 500px;
+            position: absolute;
+            top: 80%;
+        }
+        .circle li {
+            list-style: none;
+            float: left;
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgb(255, 255, 255);
+            color: snow;
+            font-size: 20px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class = "w">
+        <div class="focus-f1">
+            <!-- 左侧按钮 -->
+            <a href="javascript:;" class="arrow-l">
+                &lt;
+            </a>
+            <a href="javascript:;" class="arrow-r">
+                &gt;
+            </a>
+            <ul>
+                <li>
+                    <a href="#"><img src="img/focus.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/focus1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/focus2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/focus3.jpg" alt=""></a>
+                   </li>
+            </ul>
+            <!-- 小圆圆 -->
+            <ol class="circle">
+
+            </ol>
+        </div>
+    </div>
+    <script>
+        //获得元素
+        var ul = document.querySelector('ul');
+        var left = document.querySelector('.arrow-l');
+        var right = document.querySelector('.arrow-r');
+        var last = ul.children[0].cloneNode(true);
+        var focuswidth = document.querySelector('.focus-f1').offsetWidth;
+        var focus = document.querySelector('.focus-f1');
+        var circle = document.querySelector('.circle');
+        //小圆圈
+        for (var i = 0; i < ul.children.length; i++) {
+            var li = document.createElement('li');
+            li.setAttribute('index', i);
+            circle.appendChild(li);
+        }
+        var dot = circle.querySelectorAll('li');
+        dot[0].style.backgroundColor = 'snow';
+        //鼠标放上去，显示按钮，离开时隐藏
+        focus.addEventListener('mouseenter',function(){
+            left.style.display = 'block';
+            right.style.display = 'block';
+        })
+        focus.addEventListener('mouseleave',function(){
+            left.style.display = 'none';
+            right.style.display = 'none';
+        })
+        ul.appendChild(last);
+        var num = 0;
+        var flag = true;//节流阀
+        var index1 = 0;
+        //右侧按钮
+        right.addEventListener('click',function () {
+            if (flag) {
+                flag = false;
+                num++;
+                index1++;
+                console.log(index1);
+                
+                dotChange(index1%4);
+                animate(ul, -focuswidth*num, function(){
+                    flag = true;
+                if (num == ul.children.length-1) {
+                        ul.style.left = 0;
+                        num = 0;
+                }
+                });
+                
+            }
+        });
+        //左侧按钮
+        left.addEventListener('click',function () {
+            if (flag) {
+                flag = false;
+                if (num == 0) {
+                        num = ul.children.length-1;
+                        ul.style.left = -focuswidth*num + 'px';
+                        
+                    }
+                    num--;
+                    index1--;
+                    dotChange(Math.abs(index1)%4);
+                animate(ul, -focuswidth*num, function(){
+                    flag = true;
+                })
+            }
+        });
+        function dotChange (num) {
+            for (var i = 0; i < dot.length; i++) {
+                dot[i].style.backgroundColor = '';
+            }
+            dot[num].style.backgroundColor = 'snow';
+        }
+      //点击小圆圈改变ul位置
+        for (var i = 0; i < dot.length; i++) {
+            dot[i].addEventListener('click',function(){
+                index1 = this.getAttribute('index');
+                console.log(index1);
+                
+                dotChange(index1);
+                animate(ul,-focuswidth*index1);
+            })
+            
+        }
+        setInterval(function () {
+            if (flag) {
+                flag = false;
+                if (num == 0) {
+                        num = ul.children.length-1;
+                        ul.style.left = -focuswidth*num + 'px';
+                        
+                    }
+                    num--;
+                    index1--;
+                    dotChange(Math.abs(index1)%4);
+                animate(ul, -focuswidth*num, function(){
+                    flag = true;
+                })
+            }
+        },2000)
+    </script>
+</body>
+</html>

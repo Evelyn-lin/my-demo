@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul, li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 20px;
+    }
+    ul ul li {
+        border: 1px solid rgb(255, 221, 84);
+    }
+    ul ul li:hover {
+        background-color: rgb(255, 242, 196);
+    }
+    li {
+        width: 80px;
+    }
+    .box {
+        float: left;
+    }
+    ul ul {
+        display: none;
+    }
+    .header{
+        width: 82px;
+    }
+    .header:hover{
+        background-color: rgb(223, 223, 223);
+    }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li class="header">微博</li>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </ul>
+    <ul class="box">
+        <li class="header">微博</li>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </ul>
+    <ul class="box">
+        <li class="header">微博</li>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </ul>
+    <ul class="box">
+        <li class="header">微博</li>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </ul>
+    <script>
+    var header = document.querySelectorAll('.header');
+    var box = document.querySelectorAll('.box');
+    for (var i = 0; i < header.length; i++) {
+        box[i].addEventListener('mouseover',function(){
+            this.children[1].style.display = 'block';
+        });
+    }
+    for (var i = 0; i < header.length; i++) {
+        box[i].addEventListener('mouseout',function(){
+            this.children[1].style.display = 'none';
+        });
+    }
+    </script>
+</body>
+</html>

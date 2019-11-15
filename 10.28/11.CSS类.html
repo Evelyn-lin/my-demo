@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+       //addClass() 向被选元素添加一个或多个类
+       //removeClass() 从被选元素删除一个或多个类
+       //toggleClass() 对被选元素进行添加/删除类的切换操作
+       //css() 设置或返回样式属性
+       $(document).ready(function(){
+           $('.btn1').click(function(){
+               $('p').addClass('blue');
+           });
+           $('.btn2').click(function(){
+               $('p').toggleClass('blue');
+           });
+           $('.btn3').click(function(){
+               $('p').removeClass('blue');
+           })
+       })
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="demo">这是第一个p</p>
+        <p>这是第二个p</p>
+        <p>这是第三个p</p>
+        
+    </div>
+    <button class="btn1">添加属性</button>
+    <button class="btn2">切换属性</button>
+    <button class="btn3">删除属性</button>
+</body>
+
+</html>

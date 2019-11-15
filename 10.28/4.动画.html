@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        //$(selector).animate({params},speed,callback); 
+        //(1)params参数定义形成动画的CSS，注意css书写格式
+        //(2)注意动画的对象需要设置position属性，relative absolute fixed都可以
+        //(3)css里面可以写多个属性的哦，一定要用逗号隔开哦
+        //(4)必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right
+        //(5)css还可以设定相对值 {left: '+=100px'}}
+        $(document).ready(function () {
+            $('.right').click(function () {
+                $('p').animate({
+                    left: '200px',
+                    height: '200px',
+                    width: '200px'
+                })//注意这个200px需要写在 ''里面哦；
+            });
+            $('.left').click(function () {
+                $('p').animate({
+                    left: '0',
+                    height: '100px',
+                    width: '100px'
+                })
+            })
+        })
+    </script>
+    <style>
+        p,
+        b {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 4, 4);
+            display: block;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="right">向右滑</button>
+    <button class="left">向左滑</button>
+    <p></p>
+    <b></b>
+</body>
+
+</html>

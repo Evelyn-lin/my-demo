@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('h2').append($('h1'));
+            $('h1').each(function(index,element){
+            if (index%2) {
+                $(this).css('color','red');
+            }
+        })
+        })
+        
+    </script>
+</head>
+<body>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h2>2</h2>
+    <h3>3</h3>
+</body>
+</html>

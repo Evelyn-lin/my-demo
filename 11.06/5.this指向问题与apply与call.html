@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+   <script>
+       function getAge(){
+           var y = new Date().getFullYear();
+           return y - this.birth;
+       }
+       var xiaoming = {
+           name:'小明',//注意这里是用的逗号哟
+           birth:1990,
+           age:getAge
+       }
+      console.log( xiaoming.age()); //29
+       var fn = xiaoming.age;
+       console.log(fn()); //NaN this指向的还是window
+       console.log(getAge.apply(xiaoming,[]));//29
+
+       //apply()接收两个参数，第一个是需要绑定的this变量，第二个参数是array
+       //call()与apply()类似 
+       //apply() 把参数打包成array传入
+       //call() 把参数按顺序传入
+       console.log(Math.max.apply(null,[1,3,5,2,32]));//32
+       //对于普通函数调用，我们通常把this绑定为null；
+       console.log(Math.max.call(null,1,43,3,54,12));//54
+       
+       //装饰器
+       //利用apply() ,我们可以动态改变函数的行为。
+       //假设想要统计一下代码一共调用了多少次：
+       var count = 0;
+       var oldParseInt = parseInt; //保存原函数
+       window.parseInt = function () {
+           count++;
+           return oldParseInt.apply(null,arguments);//调用原函数
+       }
+       //测试
+       parseInt('10');
+       parseInt('20');
+       parseInt('30');
+       console.log('count=' + count);
+       
+   </script>
+</body>
+
+</html>

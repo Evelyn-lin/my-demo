@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,li {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        button{
+            color: black;
+        }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn1').click(function(){
+                $('body').children().css('color','red') //parent() 选取第一个父元素
+            });
+            $('.btn2').click(function(){
+                $('body').children('div').css('color','red') // parents() 选取所有的父元素，包括父元素的父元素哦
+            });
+            $('.btn3').click(function(){
+                $('body').find('ul').css('color','red') // parents('div') 选取父元素中，标签名为div的
+            });
+            $('.btn4').click(function(){
+                $('body').find('*').css('color','red') // parentsUntill('div') 选取自身元素与div元素之间的父元素，不包括div
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <body class="ancestors"> body (曾曾祖父)
+        <div style="width:500px;">div (曾祖父)
+            <ul>ul (祖父)
+                <li>li (直接父)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <button class="btn1">chileren()</button>
+        <button class="btn2">children('div')</button>
+        <button class="btn3">find('ul')</button>
+        <button class="btn4">find('*')</button>
+    </body>
+</body>
+
+</html>

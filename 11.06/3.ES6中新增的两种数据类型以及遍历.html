@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.Map 是一组键值对的结构，具有极快的查找速度
+        var m = new Map();//声明一个空的Map
+        m.set('anna', 60);//添加一个新的key-value
+        m.set('bana', 90);
+        console.log(m.has('bana')); //是否存有key 'bana',true
+        m.delete('bana');//删除key 'bana'
+        console.log(m.has('bana')); //false
+        //注意：一个key只能对应一个value，所以多次对一个key放入value，后面的值会把前面的值冲掉
+
+        //2.Set 也是一组key的集合，但是不储存value
+        var s1 = new Set(); // 空Set
+        var s2 = new Set([1, 2, 3]) //包含1，2，3
+
+        //重复元素自动被过滤
+        s2.add(4);
+        console.log(s2); //{1,2,3,4}
+        s2.delete(3);
+        console.log(s2);//{1,2,4}
+        s2.add('anna');
+        console.log(s2);//{1,2,4,'anna'}
+
+        //遍历Array可以采用下标循环
+        var arr = [1, 2, 3, 4];
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+        //遍历Map和Set无法使用下标，为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map、Set都属于iterable类型
+        //具有iterable类型的集合可以通过新的for of循环来遍历；
+        var a = ['a', 'b', 'c'];
+        var b = new Set(['A', 'B', 'C']);
+        var c = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+        for (var x of a) {
+            console.log(x);
+            //遍历a
+        }
+        for (var x of b) {
+            console.log(x);
+            //遍历b
+        }
+        for (var x of c) {
+            console.log(x);
+            //遍历b
+        }
+
+        //还有更好的方式，就是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调函数。
+        a.forEach(function (element, index, array) {
+            //element:指向当前元素的值
+            //index:指向当前索引
+            //array:指向Array
+            console.log(element + '，index = ' + index);
+            //a,index=0
+            //b,index=1
+            //c,index=2
+
+        })
+        b.forEach(function (element, sameElement, set) {
+            console.log(element);
+
+        })
+        c.forEach(function (value, key, map) {
+            console.log(key + ',' + value);
+
+        })
+    </script>
+</body>
+
+</html>

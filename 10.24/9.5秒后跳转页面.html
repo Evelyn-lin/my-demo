@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <p></p>
+    <script>
+    var btn = document.querySelector('button');
+    var p = document.querySelector('p');
+    var i = 5;
+    fn();
+    setInterval(fn,1000);
+    function fn () {
+        p.innerHTML = '您将在'+ i +'秒后跳转到首页';
+        i--;
+        if (i == 0) {
+            location.href='http://www.baidu.com';
+        }
+    }
+    btn.onclick = function() {
+        location.href='http://www.baidu.com';
+    }
+    </script>
+</body>
+</html>

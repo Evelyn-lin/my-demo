@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul {
+        background-color: rgb(224, 223, 223);
+        display: inline-block;
+        padding: 0;
+        width: 1200px;
+    }
+    ul li {
+        margin: 0;
+        padding: 20px;
+        float: left;
+    }
+    .before {
+        display: inline-block;
+        font-size: 20px;
+    }
+    .change {
+        display: inline-block;
+        background-color: rgb(199, 4, 4);
+        color: aliceblue;
+        font-size: 20px;
+    }
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="change" >商品介绍</li>
+            <li class="before">规格与包装</li>
+            <li class="before">售后保障</li>
+            <li class="before">商品评价（5000）</li>
+            <li class="before">手机社区</li>
+        </ul>
+    </div>
+    <script>
+    var lis = document.querySelector('ul').querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('click',function(){
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = 'before';
+            }
+            this.className = 'change';
+        })
+    }
+    </script>
+</body>
+</html>

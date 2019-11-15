@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.使用ajax发送数据的步骤
+
+        //1)创建异步对象
+        var xhr = new XMLHttpRequest();
+
+        //2)设置请求行open(请求方式，请求url)
+        //get 请求如果有参数就需要在url后面拼接参数
+        xhr.open("get", "validate.php?username=" + name);
+        //post 如果有参数，就在请求中传递 
+        xhr.open("post", "validate.php");
+
+        //3)设置请求头
+        //get 不需要设置
+        //post需要设置请求头：Content-Type:application/x-www-form-urlencoded
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        //4)设置请求体
+        //get 的参数在url拼接了，所以不需要在这个函数中设置
+        //post的参数在这个函数中设置（如果有参数）
+        xhr.send(null)
+        xhr.send("username+" + name)
+
+        //5)让异步对象接收服务器的响应数据
+        //一个成功的响应有两个条件：1.服务器成功响应了  2.异步对象的响应状态为4（数据解析完毕可以使用了）
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                console.log(xhr.responseText);
+            }
+        }
+
+
+        //ajax-get方式请求案例
+        var xhr = new XMLHttpRequest;//创建异步对象
+        xhr.open("get", "validate.php?username=" + name);//设置请求行
+        xhr.send(null);//设置请求体
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                console.log(xhr.responseText);
+                document.querySelector('.showmsg').innerHTML = xhr.responseText;
+            }
+        }
+
+        //ajax-post方式请求案例
+        var xhr = new XMLHttpRequest;//创建异步对象
+        xhr.open("post", "validate.php");//设置请求行
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencode");//设置请求头
+        xhr.send("username=" + name);//设置请求体，设置参数
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 100 && xhr.readyState == 4) {
+                document.querySelector('.showmsg').innerHTML = xhr.responseText;
+            }
+        } //接收服务器响应数据
+
+        var xhr = new XMLHttpRequest;//创建异步对象
+        xhr.open("get", "asdas.php?username=" + name);//设置请求行
+        xhr.send(null);//设置请求体
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200 && shr.readyState == 4) {
+                document.querySelector('.showmsg').innerHTML == xhr.responseText;
+            }
+        }
+
+        var xhr = XMLHttpRequest();//创建异步对象
+        xhr.open("post", "asdas.php");//设置请求行
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencode");//设置请求头
+        xhr.send("username=" + name);//设置请求体
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                document.querySelector('.showmsg').innerHTML == xhr.responseText;
+            }
+        }
+    </script>
+</body>
+
+</html>

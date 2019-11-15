@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        body,
+        div,
+        img,
+        .close {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            display: none;
+            position: relative;
+            width: 500px;
+            margin: auto;
+        }
+
+        img {
+            width: 500px;
+            margin: auto;
+        }
+
+        .close {
+            position: absolute;
+            width: 75px;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.356);
+        }
+    </style>
+    <script>
+        //显示动画  fadeIn()  show() slideDown()
+        //隐藏动画  fadeOut() hide() slideUp()
+        $(document).ready(function () {
+            var time;
+            $(function () {
+                //设置定时  5s后执行一个显示广告的函数
+                time = setInterval(showAd, 1000)
+            });
+            var n = 5;
+            //显示广告的函数
+            function showAd() {
+                //获得广告的img，显示
+                // $('.box').show(2000);
+                $('.box').fadeIn(2000);
+                // $('.box').slideDown(2000);
+                setInterval(timer, 1000);
+                function timer() {
+                    if (n) {
+                        $('.close').html(n + '秒后关闭');
+                        n--;
+                    }
+                }
+                //清空定时
+                clearInterval(time);
+                //重新设置定时
+                time = setInterval(hideAd, 5000);
+            }
+            function hideAd() {
+                // $('.box').hide(2000);
+                $('.box').fadeOut(2000);
+                // $('.box').slideUp(2000);
+
+                //清空定时
+                clearInterval(time);
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <img src="1.jpg" alt="">
+        <div class="close"></div>
+    </div>
+</body>
+
+</html>
