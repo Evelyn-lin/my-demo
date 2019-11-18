@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 字符串的识别 */
+
+        var str = 'abcdefg';
+        //1.    includes()返回布尔值，判断是否找到参数字符串
+        console.log(str.includes('a'));//true
+        //2.    startWith()返回布尔值，判断参数字符串是否在原字符串头部
+        console.log(str.startsWith('ab'));//true
+        //3.    endWith()返回布尔值，判断参数字符串是否在原字符串的尾部
+        console.log(str.endsWith('g'));//true
+        //注意：以上三种方法都可以接收两个参数，需要搜索的字符串，和可选的搜索起始位置索引。
+
+        /* 字符串重复 */
+
+        //   repeat()返回新的祖父传，表示将字符串重复指定次数返回
+        console.log('Hello,'.repeat(2));//Hello,Hello,
+        //如果参数是小数，向下取整
+        console.log('Hello,'.repeat(2.1));//Hello,Hello,
+        
+        /* 字符串补全 */
+        //1.    padStart(字符串长度，补全的字符串)：返回新的字符串，表示用参数字符串从头部补全原字符串。
+        console.log('h'.padStart(2,'o'));//oh
+        console.log('a'.padStart(5,'b'));//bbbba
+
+        //2.    padEnd(字符串长度，补全的字符串)：返回新的字符串，表示用参数字符串从尾部补全原字符串
+        console.log('h'.padEnd(2,'o'));//ho
+        console.log('h'.padEnd(10,'hoi'))
+        
+        
+    </script>
+</body>
+</html>

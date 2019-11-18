@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Proxy 是ES5为了操作对象引入的API
+        Proxy 可以对目标对象的读取、函数调用等操作进行拦截
+
+        一个Proxy 对象由两部分组成：Target 、handler，在通过Proxy构造函数生成实例对象时，需要提供这两个参数
+        Target即 目标对象，handler 是一个对象，声明了代理target 的指定行为。
+
+        let target = {
+            name:'Tom',
+            age:24
+        }
+        let handler = {
+            get:function(target,key){
+                console.log('getting' + key);
+                }
+                return target[key];//不是taeget.key哦
+            set:function(target,key,value){
+                console.log('setting' + key);
+                target[key] = value;
+            }
+        }
+        let proxy = new Proxy(target,handler);
+        proxy.name     // 实际执行 handler.get
+        proxy.age = 25 // 实际执行 handler.set  
+         */
+
+         /* 实例方法 
+         1.get(target,propKey,receiver)
+         用于拦截对象上的propKey的读取操作；get()方法可以继承
+
+         2.set(target, propKey, value, receiver)
+         用于拦截对象上的propKey的设置
+
+         3.apply(target, ctx, args)
+         用于拦截函数的调用，call/reply操作
+
+         4.has(target, propKey)
+         用于拦截hasProperty 操作，即在判断target对象是否存在propKey属性时，会被这个方法拦截
+         ex: 'prop' in propxy
+
+         5.constructor(target,args)
+         用于拦截new 命令，返回值必须为对象
+
+         6.deleteProperty(target, propKey)拦截delete
+         7.defineProperty(target,peopKey,propDesc)
+         用于拦截 Object.definePro若目标对象不可扩展，增加目标对象上不存在的属性会报错；
+
+         
+         */
+    </script>
+</body>
+
+</html>

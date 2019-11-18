@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Reflect 对象设计的目的
+            1.将Object对象的一些明显属于语言内部的方法，比如Object.defineProperty,
+            放到Reflect 对象上。
+            2.修改某些Object方法的返回结果，让其变得更合理。
+        */
+
+        /* 一、静态方法
+        1.Reflect.get(target, name, receiver) 查找并返回target 对象的name属性，如果没有，则返回undefined
+        注意：如果name属性部署了读取函数，则this指向的是receiver
+        var myObject = {
+            foo: 1,
+            bar: 2,
+            get baz() {
+                return this.foo + this.bar;
+            },
+        };
+
+        var myReceiverObject = {
+            foo: 4,
+            bar: 4,
+        };
+
+        Reflect.get(myObject, 'baz', myReceiverObject) // 8
+
+        2.Reflect.set(target,name,value,receiver) 设置target对象的name属性等于value
+            注意：如果name属性设置了赋值函数，则赋值函数的this绑定reciver
+ */
+    </script>
+</body>
+
+</html>

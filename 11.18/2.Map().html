@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Maps 和Objects 的区别
+        //1.一个Object的键只能是字符串或者Symbols，但是Map的键可以是任意值
+        //2.Map 中的键值是有序的，而添加到对象中的键则不是
+        //3.Map 的键值对个数是可以从size属性获取，而Object的键值对个数只能手动计算
+        //4.Object都有自己的原型，原型链上的键名有可能和你自己在对象上设置的键名产生冲突
+        //5.Map.keys()获取键名 、 Object.keys(obj) 获取对象的键名
+        var myMap = new Map();
+        myMap.set('keyString1','有关的值1');
+        myMap.set('keyString2','有关的值2');
+        console.log(myMap);// {"keyString" => "有关的值"}
+        
+        //Map 的迭代
+        //for of 对Map进行遍历
+        for (var [key,value] of myMap) {
+            console.log(key +value);
+        }
+        for (var key of myMap.keys()){
+            console.log(key);
+            
+        }
+
+        //for in 返回的是键名，或者是索引号
+        //for of 返回的是值
+
+        //Map 与 Array 的转换
+        var kvArray = [["key1", "value1"], ["key2", "value2"]];
+        //1.Map 构造函数可以将一个二维键值对数组转换为一个Map对象
+        var myMap = new Map(kvArray);
+        console.log(myMap);
+        //2.Array.from() 可以将一个map对象转换为一个二维键值对数组
+        //Array.from() 还可以接受第二个参数，对数组进行处理
+        var outArray = Array.from(myMap);
+        // var outArray = [...myMap];
+        console.log(outArray);
+        
+        //Map 的克隆
+        var clone = new Map(myMap);
+        console.log(clone);
+        
+        //Map 的合并
+        var first = new Map([[1, 'one'], [2, 'two'], [3, 'three'],]);
+        var second = new Map([[1, 'uno'], [2, 'dos']]);
+        var merged = [...first,...second];
+        console.log(merged);
+        
+    </script>
+</body>
+</html>
