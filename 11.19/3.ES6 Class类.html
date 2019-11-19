@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //类定义
+        //匿名类
+        let Example1 = class{
+            constructor(a){
+                this.a = a;
+            }
+        }
+        //命名类
+        let Example2 = class Example{
+            constructor(a){
+                this.a = a;
+            }
+        }
+
+        //类声明
+        class Example3 {
+            constructor(a){
+                this.a = a;
+            }
+        }//注意：不可重复声明
+        //类定义不会被提升，意味着必须在访问前对类进行定义，否则报错
+
+        //属性 prototype
+        Example1.prototype = {
+            //methods
+        }
+        //添加方法
+        Object.assign(Example1.prototype,{
+            //methods
+        })
+
+        //name属性  返回跟在class后面的类名（如果存在）
+        console.log(Example2.name);//Example
+        
+        //方法
+        //constructor方法，是默认方法，创建类的实例化对象时调用
+        class Example4{
+            constructor(){
+                console.log('我是constructor');
+            }
+        }
+        new Example4();//我是constructor
+        //静态方法,好像不会传递给后代
+        class Example5{
+            static sum(a,b){
+                console.log(a+b);
+            }
+        }
+        Example5.sum(1,2);//3
+        //原型方法
+        class Example6{
+            sum(a,b){
+                console.log(a+b);
+                
+            }
+        }
+        let a = new Example6();
+        a.sum(2,2);//4
+        //实例方法
+        class Example7{
+            constructor(){
+                this.sum = (a,b) => {
+                    console.log(a+b);
+                    
+                }
+            }
+        }
+    
+    </script>
+</body>
+</html>
